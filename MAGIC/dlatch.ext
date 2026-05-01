@@ -1,0 +1,54 @@
+timestamp 1619620769
+version 8.3
+tech scmos
+style lambda=1.0(scna20_orb)
+scale 1000 1 100
+resistclasses 26670 59550 23860 19690 27260 2000000 49 26 2505830
+node "a_191_n59#" 32 0 191 -59 ndiff 120 44 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "a_n21_n64#" 32 0 -21 -64 ndiff 120 44 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "gnd" 714 74498 -31 -64 ndc 240 108 0 0 90 86 0 0 0 0 0 0 1524 778 0 0 0 0
+node "a_191_n1#" 99 0 191 -1 pdiff 0 0 240 64 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "a_n21_n6#" 99 0 -21 -6 pdiff 0 0 240 64 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "in_en" 1371 102214 -13 -37 pc 0 0 0 0 268 252 0 0 0 0 0 0 1776 904 0 0 0 0
+node "vdd" 1164 56556 -31 -6 pdc 0 0 480 168 92 84 0 0 0 0 0 0 1364 698 0 0 0 0
+node "q_out" 1798 57608 75 -39 ndiff 80 36 160 56 302 290 0 0 0 0 0 0 904 468 0 0 0 0
+node "a_n7_n64#" 1927 133010 -7 -64 ndiff 160 72 320 112 250 238 0 0 0 0 0 0 2758 1382 0 0 0 0
+node "in_en_bar" 1392 106899 -13 -25 pc 0 0 0 0 264 252 0 0 0 0 0 0 1887 926 0 0 0 0
+node "in_D" 1002 16570 -27 -15 pc 0 0 0 0 184 180 0 0 0 0 0 0 124 70 0 0 0 0
+node "w_169_n9#" 3620 0 169 -9 nw 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1872 176
+node "w_53_n14#" 2777 0 53 -14 nw 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1517 156
+node "w_n43_n14#" 3620 0 -43 -14 nw 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1872 176
+cap "a_n7_n64#" "gnd" 240
+cap "a_n7_n64#" "in_D" 240
+cap "w_169_n9#" "in_en" 858
+cap "w_n43_n14#" "in_en_bar" 858
+cap "w_n43_n14#" "vdd" 1504
+cap "in_en_bar" "q_out" 720
+cap "in_en_bar" "vdd" 240
+cap "vdd" "q_out" 240
+cap "w_53_n14#" "a_n7_n64#" 858
+cap "w_169_n9#" "a_n7_n64#" 1504
+cap "in_en" "in_en_bar" 240
+cap "in_en" "q_out" 240
+cap "w_n43_n14#" "in_D" 3582
+cap "in_en_bar" "in_D" 240
+cap "w_n43_n14#" "a_n7_n64#" 1504
+cap "a_n7_n64#" "in_en_bar" 240
+cap "a_n7_n64#" "q_out" 240
+cap "w_53_n14#" "q_out" 1504
+cap "in_en" "gnd" 240
+cap "w_53_n14#" "vdd" 1692
+cap "in_en" "in_D" 240
+cap "w_169_n9#" "q_out" 3582
+cap "w_169_n9#" "vdd" 1504
+cap "a_n7_n64#" "in_en" 480
+device mosfet nfet 203 -59 204 -58 2 10 "Gnd!" "in_en_bar" 4 0 "a_191_n59#" 10 60,22 "a_n7_n64#" 10 80,36
+device mosfet nfet 189 -59 190 -58 2 10 "Gnd!" "q_out" 4 0 "gnd" 10 80,36 "a_191_n59#" 10 60,22
+device mosfet nfet -9 -64 -8 -63 2 10 "Gnd!" "in_en" 4 0 "a_n21_n64#" 10 60,22 "a_n7_n64#" 10 80,36
+device mosfet nfet -23 -64 -22 -63 2 10 "Gnd!" "in_D" 4 0 "gnd" 10 80,36 "a_n21_n64#" 10 60,22
+device mosfet nfet 73 -39 74 -38 2 10 "Gnd!" "a_n7_n64#" 4 0 "gnd" 10 80,36 "q_out" 10 80,36
+device mosfet pfet 203 -1 204 0 2 20 "w_169_n9#" "in_en" 4 0 "a_191_n1#" 20 120,32 "a_n7_n64#" 20 160,56
+device mosfet pfet 189 -1 190 0 2 20 "w_169_n9#" "q_out" 4 0 "vdd" 20 160,56 "a_191_n1#" 20 120,32
+device mosfet pfet 73 -6 74 -5 2 20 "w_53_n14#" "a_n7_n64#" 4 0 "vdd" 20 160,56 "q_out" 20 160,56
+device mosfet pfet -9 -6 -8 -5 2 20 "w_n43_n14#" "in_en_bar" 4 0 "a_n21_n6#" 20 120,32 "a_n7_n64#" 20 160,56
+device mosfet pfet -23 -6 -22 -5 2 20 "w_n43_n14#" "in_D" 4 0 "vdd" 20 160,56 "a_n21_n6#" 20 120,32

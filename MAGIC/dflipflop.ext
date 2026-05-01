@@ -1,0 +1,22 @@
+timestamp 1619621930
+version 8.3
+tech scmos
+style lambda=1.0(scna20_orb)
+scale 1000 1 100
+resistclasses 26670 59550 23860 19690 27260 2000000 49 26 2505830
+use dlatch dlatch_1 1 0 476 0 1 115
+use dlatch dlatch_0 1 0 79 0 1 115
+node "m1_621_170#" 2 24252 621 170 m1 0 0 0 0 0 0 0 0 0 0 0 0 516 266 0 0 0 0
+node "a_380_66#" 343 91412 380 66 pc 0 0 0 0 80 72 0 0 0 0 0 0 1788 910 0 0 0 0
+node "a_389_100#" 444 60539 389 100 pc 0 0 0 0 90 86 0 0 0 0 0 0 1109 504 0 0 0 0
+node "a_337_202#" 663 89613 337 202 pc 0 0 0 0 134 126 0 0 0 0 0 0 1621 802 0 0 0 0
+cap "a_380_66#" "a_337_202#" 240
+cap "a_389_100#" "a_337_202#" 300
+cap "dlatch_1/in_en_bar" "dlatch_1/in_D" 300
+merge "dlatch_1/in_D" "dlatch_0/q_out" -752 0 0 0 0 0 0 0 0 0 0 0 0 -16 -24 0 0 0 0
+merge "dlatch_0/q_out" "a_389_100#"
+merge "dlatch_0/in_en_bar" "dlatch_1/in_en" 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -18 0 0 0 0
+merge "dlatch_1/in_en" "a_337_202#"
+merge "dlatch_1/in_en_bar" "dlatch_0/in_en" -5264 0 0 0 0 0 0 0 0 0 0 0 0 -112 -82 0 0 0 0
+merge "dlatch_0/in_en" "a_380_66#"
+merge "dlatch_1/q_out" "m1_621_170#" 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -8 0 0 0 0

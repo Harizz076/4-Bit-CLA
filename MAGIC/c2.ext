@@ -1,0 +1,32 @@
+timestamp 1619090282
+version 8.3
+tech scmos
+style lambda=1.0(scna20_orb)
+scale 1000 1 100
+resistclasses 26670 59550 23860 19690 27260 2000000 49 26 2505830
+node "gnd" 68 16544 14 -61 ndiff 160 56 0 0 0 0 0 0 0 0 0 0 432 224 0 0 0 0
+node "a_n24_n61#" 184 7520 -24 -61 ndc 400 120 0 0 0 0 0 0 0 0 0 0 320 168 0 0 0 0
+node "in_g1_bar" 1206 23422 8 -28 pc 0 0 0 0 218 214 0 0 0 0 0 0 204 110 0 0 0 0
+node "vdd" 376 14100 0 5 pdiff 0 0 320 104 0 0 0 0 0 0 0 0 452 234 0 0 0 0
+node "a_n14_5#" 199 0 -14 5 pdiff 0 0 480 104 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "c2_out" 639 20398 -24 5 pdc 240 64 480 152 0 0 0 0 0 0 0 0 952 484 0 0 0 0
+node "in_p1_bar" 1337 19726 -6 -20 pc 0 0 0 0 240 236 0 0 0 0 0 0 148 82 0 0 0 0
+node "in_g0_bar" 1336 17470 -20 -12 pc 0 0 0 0 240 236 0 0 0 0 0 0 92 54 0 0 0 0
+node "w_n30_n1#" 2790 0 -30 -1 nw 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3127 224
+cap "c2_out" "in_g1_bar" 480
+cap "in_g0_bar" "c2_out" 240
+cap "in_p1_bar" "in_g1_bar" 240
+cap "c2_out" "w_n30_n1#" 7426
+cap "in_g0_bar" "in_p1_bar" 240
+cap "in_g0_bar" "in_g1_bar" 240
+cap "in_p1_bar" "w_n30_n1#" 702
+cap "w_n30_n1#" "in_g1_bar" 1404
+cap "in_g0_bar" "w_n30_n1#" 702
+cap "in_p1_bar" "c2_out" 480
+cap "w_n30_n1#" "vdd" 3384
+device mosfet nfet 12 -61 13 -60 2 20 "Gnd!" "in_g1_bar" 4 0 "a_n24_n61#" 20 120,32 "gnd" 20 160,56
+device mosfet nfet -2 -61 -1 -60 2 20 "Gnd!" "in_p1_bar" 4 0 "c2_out" 20 120,32 "a_n24_n61#" 20 120,32
+device mosfet nfet -16 -61 -15 -60 2 20 "Gnd!" "in_g0_bar" 4 0 "a_n24_n61#" 20 160,56 "c2_out" 20 120,32
+device mosfet pfet 12 14 13 15 2 20 "w_n30_n1#" "in_g1_bar" 4 0 "vdd" 20 160,52 "c2_out" 20 160,56
+device mosfet pfet -2 5 -1 6 2 40 "w_n30_n1#" "in_p1_bar" 4 0 "a_n14_5#" 40 240,52 "vdd" 40 160,52
+device mosfet pfet -16 5 -15 6 2 40 "w_n30_n1#" "in_g0_bar" 4 0 "c2_out" 40 320,96 "a_n14_5#" 40 240,52

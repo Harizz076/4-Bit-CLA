@@ -1,0 +1,143 @@
+*** 3-bit XOR Implementation using Transmission Gates ***
+
+.include "TSMC_180nm.txt"
+
+.global vdd vss
+
+*** Power supplies ***
+
+Vdd vdd 0 1.8
+
+Vss vss 0 0
+
+*** Parameters ***
+
+.param time=5n
+
+.param lambda = 0.09u
+
+.param L = 2*lambda
+
+.param Wn = 20*lambda
+
+.param Wp = 10*lambda
+
+*** Input signals ***
+
+VA1 a1 0 PULSE(0 1.8 0n 100p 100p 15n 30n)
+
+VB1 b1 0 PULSE(0 1.8 0n 100p 100p 25n 50n)
+
+VC1 c1 0 PULSE(0 1.8 0n 100p 100p 35n 70n)
+
+VA2 a2 0 PULSE(0 1.8 5n 100p 100p 15n 30n)
+
+VB2 b2 0 PULSE(0 1.8 5n 100p 100p 25n 50n)
+
+VC2 c2 0 PULSE(0 1.8 5n 100p 100p 35n 70n)
+
+VA3 a3 0 PULSE(0 1.8 10n 100p 100p 15n 30n)
+
+VB3 b3 0 PULSE(0 1.8 10n 100p 100p 25n 50n)
+
+VC3 c3 0 PULSE(0 1.8 10n 100p 100p 35n 70n)
+
+*** Basic subcircuits ***
+
+.SUBCKT nmos d g s b W=900n L=180n
+
+M1 d g s b CMOSN W={40*W} L={L}
+
+.ENDS nmos
+
+.SUBCKT pmos d g s b W=1.8u L=180n
+
+M1 d g s b CMOSP W={80*W} L={L}
+
+.ENDS pmos
+
+.subckt inv in out
+
+Xp1 out in vdd vdd pmos
+
+Xn1 out in vss vss nmos
+
+.ends inv
+
+*** Transmission Gate ***
+
+.SUBCKT tgate in ctrl ctrl_n out
+
+Xp1 out ctrl_n in vdd pmos
+
+Xn1 out ctrl in vss nmos
+
+.ENDS tgate
+
+*** XOR Gate using Transmission Gates ***
+
+.SUBCKT xor_gate a b out
+
+* Generate inverse signals
+
+Xinv_a a a_n inv
+
+Xinv_b b b_n inv
+
+* First transmission gate pair
+
+Xtg1 a b_n b out tgate
+
+Xtg2 a_n b b_n out tgate
+
+.ENDS xor_gate
+
+*** Main Circuit - 3-bit XOR ***
+
+* First instance of 3-bit XOR: Inputs a1, b1, c1
+
+Xxor1_1 a1 b1 p1 xor_gate
+
+Xxor2_1 p1 c1 sum1 xor_gate
+
+* Second instance of 3-bit XOR: Inputs a2, b2, c2
+
+Xxor1_2 a2 b2 p2 xor_gate
+
+Xxor2_2 p2 c2 sum2 xor_gate
+
+* Third instance of 3-bit XOR: Inputs a3, b3, c3
+
+Xxor1_3 a3 b3 p3 xor_gate
+
+Xxor2_3 p3 c3 sum3 xor_gate
+
+*** Analysis ***
+
+.tran 0.1n 100n
+
+.control
+
+run
+
+set color0=white
+
+set color1=black
+
+set xbrushwidth=2
+
+plot a1+2 b1+4 c1+6 sum1+8 title '3-bit XOR Operation - Set 1'
+
+plot a2+2 b2+4 c2+6 sum2+8 title '3-bit XOR Operation - Set 2'
+
+plot a3+2 b3+4 c3+6 sum3+8 title '3-bit XOR Operation - Set 3'
+
+wrdata xor_output_set1.txt v(a1) v(b1) v(c1) v(sum1)
+
+wrdata xor_output_set2.txt v(a2) v(b2) v(c2) v(sum2)
+
+wrdata xor_output_set3.txt v(a3) v(b3) v(c3) v(sum3)
+
+.endc
+
+.end

@@ -1,0 +1,148 @@
+testing c2
+.include TSMC_180nm.txt
+
+* Parameters
+.param time=5n
+.param lambda = 0.09u
+.param L = 2*lambda
+.param Wn = 20*lambda
+.param Wp = 20*lambda
+.global gnd vdd
+
+
+.SUBCKT Nswitch gate src drn width=1
+M1 drn gate src gnd CMOSN W={width} L={L}
++ AS={5*width*L/2} PS={10*L/2+2*width}
++ AD={5*width*L/2} PD={10*L/2+2*width}
+.ENDS Nswitch
+
+.SUBCKT Pswitch gate src drn width=1
+M2 drn gate src vdd CMOSP W={width} L={L}
++ AS={5*width*L/2} PS={10*L/2+2*width}
++ AD={5*width*L/2} PD={10*L/2+2*width}
+.ENDS Pswitch
+
+.subckt inverter in out 
+X1 in vdd out Pswitch width={wp/2}
+X2 in gnd out Nswitch width={wn}
+.ends
+
+
+* Voltage Sources
+Vdd vdd gnd DC 1.8
+* Modified input signal for better visualization of inverting behavior
+Vinclk clk  gnd PULSE(0 1.8 0n 0.1n 0.1n {time  } { 2*time } )
+Ving0 p0 gnd PULSE(0 1.8 0n 0.1n 0.1n  {2*time} { 4*time } )
+Ving2 c0 gnd PULSE(0 1.8 0n 0.1n 0.1n  {2*time} { 4*time } )
+Ving3 g0  gnd PULSE(0 1.8 0n 0.1n 0.1n {4*time} { 8*time } )
+
+Ving10 p1 gnd PULSE(0 1.8 0n 0.1n 0.1n  {2*time} { 4*time } )
+
+Ving12 c1 gnd PULSE(0 1.8 0n 0.1n 0.1n  {2*time} { 4*time } )
+
+Ving13 g1  gnd PULSE(0 1.8 0n 0.1n 0.1n {4*time} { 8*time } )
+
+Ving20 p2 gnd PULSE(0 1.8 0n 0.1n 0.1n  {2*time} { 4*time } )
+
+Ving22 c2 gnd PULSE(0 1.8 0n 0.1n 0.1n  {2*time} { 4*time } )
+
+Ving23 g2  gnd PULSE(0 1.8 0n 0.1n 0.1n {4*time} { 8*time } )
+
+Ving30 p3 gnd PULSE(0 1.8 0n 0.1n 0.1n  {2*time} { 4*time } )
+
+Ving32 c3 gnd PULSE(0 1.8 0n 0.1n 0.1n  {2*time} { 4*time } )
+
+Ving33 g3  gnd PULSE(0 1.8 0n 0.1n 0.1n {4*time} { 8*time } )
+
+Ving4 ing3  gnd PULSE(0 1.8 0n 0.1n 0.1n {8*time} { 16*time} )
+Vinp0 inp0 gnd PULSE(0 1.8 0n 0.1n 0.1n  {2*2*time} { 2*4*time } )
+Vinp2 inp1 gnd PULSE(0 1.8 0n 0.1n 0.1n  {2*2*time} { 2*4*time } )
+Vinp3 inp2  gnd PULSE(0 1.8 0n 0.1n 0.1n {2*4*time} { 2*8*time } )
+Vinp4 inp3  gnd PULSE(0 1.8 0n 0.1n 0.1n {2*8*time} { 2*16*time} )
+
+
+*********
+* C1
+X1 p0 VDD N1 Pswitch width={4*wp}
+X2 c0 VDD N1 Pswitch width={4*wp}
+X3 g0 N1 out1  Pswitch width={4*wp}
+
+X11 p0 out1 N2 Nswitch width=(2*wp)
+X12 c0 n2 gnd Nswitch width={2*wp}
+X13 g0 out1 gnd Nswitch width={wp}
+
+X20 out1 out inverter
+
+*C2
+Xi4 co VDD N3 Pswitch width={8*wp}
+Xi5 go N3 N4 Pswitch width={8*wp}
+Xi6 g1 N4 out2 Pswitch width={4*wp}
+xi7 p0 VDD N3 Pswitch width={8*wp}
+xi8 p1 VDD N4 Pswitch width={4*wp}
+
+Xi14 p1 out2 N5 Nswitch width={2*wp}
+Xi15 p0 N5 N6 Nswitch width={4*wp}
+Xi16 c0 N6 0 Nswitch width={4*wp}
+xi17 g0 N5 0 Nswitch width={2*wp}
+xi18 g1 out2 0 Nswitch width={wp}
+
+Xi20 out2 out12 inverter
+
+*C3
+Xii1 co VDD N7 Pswitch width={16*wp}
+Xii2 g0 N7 N8 Pswitch width={16*wp}
+Xii3 g1 N8 N9 Pswitch width= {8*wp}
+Xii4 g2 N9 out3 Pswitch width={4*wp}
+Xii5 p0 VDD N7 Pswitch width={16*wp}
+Xii6 p1 VDD N8 Pswitch width={8*wp}
+Xii7 p2 VDD N9 Pswitch width={8*wp}
+
+Xii11 p2 out3 N10 Nswitch width={2*wp}
+Xii12 p1 N10 N11 Nswitch width={4*wp}
+Xii13 p0 N11 N12 Nswitch width={8*wp}
+Xii14 c0 N12 0 Nswitch width={8*wp}
+Xii15 g0 N11 0 Nswitch width={4*wp}
+Xii16 g1 N10 0 Nswitch width={2*wp}
+Xii17 g2 out3 0 Nswitch width={Wp}
+
+Xii20 out3 out13 inverter
+
+*C4
+Xiii1 co VDD N13 Pswitch width={32*wp}
+Xiii2 g0 N13 N14 Pswitch width={32*wp}
+Xiii3 g1 N14 N15 Pswitch width={16*wp}
+Xiii4 g2 N15 N16 Pswitch width={8*wp}
+Xiii5 g3 N16 out4 Pswitch width={4*wp}
+Xiii6 p0 VDD N13 Pswitch width={32*wp}
+Xiii7 p1 VDD N14 Pswitch width={16*wp}
+Xiii8 p2 VDD N15 Pswitch width={8*wp}
+Xiii9 p3 VDD N16 Pswitch width={4*wp}
+ 
+Xiii11 p3 out4 N17 Nswitch width={2*wp}
+Xiii12 p2 N17 N18 Nswitch width={4*wp}
+Xiii13 p1 N18 N19 Nswitch width={8*wp}
+Xiii14 p0 N19 N20 Nswitch width={16*wp}
+Xiii15 c0 N20 0 Nswitch width={16*wp}
+Xiii16 g0 N19 0 Nswitch width={8*wp}
+Xiii17 g1 N18 0 Nswitch width={4*wp}
+Xiii18 g2 N17 0 Nswitch width={2*wp}
+Xiii19 g3 out4 0 Nswitch width={wp}
+
+Xiii20 out4 out14 inverter
+
+********
+
+* Analysis commands
+.control
+set hcopypscolor = 1 
+set color0=white 
+set color1=black 
+set temp=27
+tran 0.1n 200n     
+plot p0 c0+2 g0+4 out1+6 out+8
+plot p1 c1+2 g1+4 out2+6 out12+8
+plot p2 c2+2 g2+4 out3+6 out13+8
+plot p3 c3+2 g3+4 out3+6 out13+8
+
+.endc
+.end

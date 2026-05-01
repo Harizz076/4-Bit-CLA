@@ -1,0 +1,79 @@
+* SPICE3 file created from sum.ext - technology: scmos
+
+.option scale=1u
+
+M1000 xor_2W_0/out xor_2W_0/in_b_bar xor_2W_0/a_n16_n9# xor_2W_0/w_n22_n15#   CMOSP w=80 l=2
++  ad=0.48n pd=92u as=0.48n ps=92u
+M1001 xor_2W_0/gnd xor_2W_0/in_b xor_2W_0/a_n8_n100# Gnd   CMOSN w=40 l=2
++  ad=0.24n pd=52u as=0.24n ps=52u
+M1002 xor_2W_0/a_20_n100# xor_2W_0/in_b_bar xor_2W_0/gnd Gnd   CMOSN w=40 l=2
++  ad=0.24n pd=52u as=0.24n ps=52u
+M1003 xor_2W_0/vdd xor_2W_0/in_a xor_2W_0/a_n16_n9# xor_2W_0/w_n22_n15#   CMOSP w=80 l=2
++  ad=0.48n pd=92u as=0.48n ps=0.172m
+M1004 xor_2W_0/a_n16_n9# xor_2W_0/in_b xor_2W_0/vdd xor_2W_0/w_n22_n15#   CMOSP w=80 l=2
++  ad=0.48n pd=92u as=0.48n ps=92u
+M1005 xor_2W_0/a_n8_n100# xor_2W_0/in_a xor_2W_0/out Gnd   CMOSN w=40 l=2
++  ad=0.24n pd=52u as=0.24n ps=92u
+M1006 xor_2W_0/a_n16_n9# xor_2W_0/in_a_bar xor_2W_0/out xor_2W_0/w_n22_n15#   CMOSP w=80 l=2
++  ad=0.48n pd=0.172m as=0.48n ps=92u
+M1007 xor_2W_0/out xor_2W_0/in_a_bar xor_2W_0/a_20_n100# Gnd   CMOSN w=40 l=2
++  ad=0.24n pd=92u as=0.24n ps=52u
+M1008 xor_2W_1/out xor_2W_1/in_b_bar xor_2W_1/a_n16_n9# xor_2W_1/w_n22_n15#   CMOSP w=80 l=2
++  ad=0.96n pd=0.184m as=1.92n ps=0.528m
+M1009 xor_2W_1/gnd xor_2W_1/in_b xor_2W_1/a_n8_n100# Gnd   CMOSN w=40 l=2
++  ad=0.48n pd=0.104m as=0.48n ps=0.104m
+M1010 xor_2W_1/a_20_n100# xor_2W_1/in_b_bar xor_2W_1/gnd Gnd   CMOSN w=40 l=2
++  ad=0.48n pd=0.104m as=0 ps=0
+M1011 xor_2W_1/vdd xor_2W_1/in_a xor_2W_1/a_n16_n9# xor_2W_1/w_n22_n15#   CMOSP w=80 l=2
++  ad=0.96n pd=0.184m as=0 ps=0
+M1012 xor_2W_1/a_n16_n9# xor_2W_1/in_b xor_2W_1/vdd xor_2W_1/w_n22_n15#   CMOSP w=80 l=2
++  ad=0 pd=0 as=0 ps=0
+M1013 xor_2W_1/a_n8_n100# xor_2W_1/in_a xor_2W_1/out Gnd   CMOSN w=40 l=2
++  ad=0 pd=0 as=0.48n ps=0.184m
+M1014 xor_2W_1/a_n16_n9# xor_2W_1/in_a_bar xor_2W_1/out xor_2W_1/w_n22_n15#   CMOSP w=80 l=2
++  ad=0 pd=0 as=0 ps=0
+M1015 xor_2W_1/out xor_2W_1/in_a_bar xor_2W_1/a_20_n100# Gnd   CMOSN w=40 l=2
++  ad=0 pd=0 as=0 ps=0
+M1016 xor_2W_2/out xor_2W_2/in_b_bar xor_2W_2/a_n16_n9# xor_2W_2/w_n22_n15#   CMOSP w=80 l=2
++  ad=0.96n pd=0.184m as=1.92n ps=0.528m
+M1017 xor_2W_2/gnd xor_2W_2/in_b xor_2W_2/a_n8_n100# Gnd   CMOSN w=40 l=2
++  ad=0.48n pd=0.104m as=0.48n ps=0.104m
+M1018 xor_2W_2/a_20_n100# xor_2W_2/in_b_bar xor_2W_2/gnd Gnd   CMOSN w=40 l=2
++  ad=0.48n pd=0.104m as=0 ps=0
+M1019 xor_2W_2/vdd xor_2W_2/in_a xor_2W_2/a_n16_n9# xor_2W_2/w_n22_n15#   CMOSP w=80 l=2
++  ad=0.96n pd=0.184m as=0 ps=0
+M1020 xor_2W_2/a_n16_n9# xor_2W_2/in_b xor_2W_2/vdd xor_2W_2/w_n22_n15#   CMOSP w=80 l=2
++  ad=0 pd=0 as=0 ps=0
+M1021 xor_2W_2/a_n8_n100# xor_2W_2/in_a xor_2W_2/out Gnd   CMOSN w=40 l=2
++  ad=0 pd=0 as=0.48n ps=0.184m
+M1022 xor_2W_2/a_n16_n9# xor_2W_2/in_a_bar xor_2W_2/out xor_2W_2/w_n22_n15#   CMOSP w=80 l=2
++  ad=0 pd=0 as=0 ps=0
+M1023 xor_2W_2/out xor_2W_2/in_a_bar xor_2W_2/a_20_n100# Gnd   CMOSN w=40 l=2
++  ad=0 pd=0 as=0 ps=0
+C0 xor_2W_0/w_n22_n15# xor_2W_0/a_n16_n9# 4.512f
+C1 xor_2W_1/a_n16_n9# xor_2W_1/w_n22_n15# 4.512f
+C2 xor_2W_2/w_n22_n15# xor_2W_2/a_n16_n9# 4.512f
+C3 xor_2W_2/gnd 0 15.98f  
+C4 xor_2W_2/out 0 32.711998f  
+C5 xor_2W_2/vdd 0 16.168001f  
+C6 xor_2W_2/a_n16_n9# 0 10.528f  
+C7 xor_2W_2/in_a_bar 0 25.616f  
+C8 xor_2W_2/in_b_bar 0 23.36f  
+C9 xor_2W_2/in_b 0 21.104f  
+C10 xor_2W_2/in_a 0 18.848f  
+C11 xor_2W_1/gnd 0 15.98f  
+C12 xor_2W_1/out 0 32.711998f  
+C13 xor_2W_1/vdd 0 16.168001f  
+C14 xor_2W_1/a_n16_n9# 0 10.528f  
+C15 xor_2W_1/in_a_bar 0 25.616f  
+C16 xor_2W_1/in_b_bar 0 23.36f  
+C17 xor_2W_1/in_b 0 21.104f  
+C18 xor_2W_1/in_a 0 18.848f  
+C19 xor_2W_0/gnd 0 15.98f  
+C20 xor_2W_0/out 0 32.711998f  
+C21 xor_2W_0/vdd 0 16.168001f  
+C22 xor_2W_0/a_n16_n9# 0 10.528f  
+C23 xor_2W_0/in_a_bar 0 25.616f  
+C24 xor_2W_0/in_b_bar 0 23.36f  
+C25 xor_2W_0/in_b 0 21.104f  
+C26 xor_2W_0/in_a 0 18.848f  

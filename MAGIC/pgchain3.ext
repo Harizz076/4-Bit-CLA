@@ -1,0 +1,29 @@
+timestamp 1618919255
+version 8.3
+tech scmos
+style lambda=1.0(scna20_orb)
+scale 1000 1 100
+resistclasses 26670 59550 23860 19690 27260 2000000 49 26 2505830
+use and and_0 1 0 180 0 1 127
+use xor_4W xor_4W_0 1 0 37 0 1 151
+use inv_2W inv_2W_1 1 0 -81 0 1 56
+use inv_2W inv_2W_0 1 0 -81 0 1 183
+node "m1_194_103#" 0 5640 194 103 m1 0 0 0 0 0 0 0 0 0 0 0 0 120 68 0 0 0 0
+node "m1_93_95#" 2 29516 93 95 m1 0 0 0 0 0 0 0 0 0 0 0 0 636 326 0 0 0 0
+node "m1_n149_43#" 3 46812 -149 43 m1 0 0 0 0 0 0 0 0 0 0 0 0 996 506 0 0 0 0
+node "m1_n149_170#" 3 42676 -149 170 m1 0 0 0 0 0 0 0 0 0 0 0 0 908 462 0 0 0 0
+node "m1_n68_170#" 8 125208 -68 170 m1 0 0 0 0 0 0 0 0 0 0 0 0 2664 1340 0 0 0 0
+node "a_107_84#" 407 97182 107 84 pc 0 0 0 0 98 86 0 0 0 0 0 0 1872 952 0 0 0 0
+cap "a_107_84#" "m1_93_95#" 240
+merge "and_0/in2" "xor_4W_0/in_b_bar" 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -24 0 0 0 0
+merge "xor_4W_0/in_b_bar" "inv_2W_1/output"
+merge "inv_2W_1/output" "a_107_84#"
+merge "xor_4W_0/in_a" "inv_2W_0/input" 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -16 0 0 0 0
+merge "inv_2W_0/input" "m1_n149_170#"
+merge "and_0/out" "m1_194_103#" 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -8 0 0 0 0
+merge "and_0/in1" "xor_4W_0/in_a_bar" 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -24 0 0 0 0
+merge "xor_4W_0/in_a_bar" "inv_2W_0/output"
+merge "inv_2W_0/output" "m1_n68_170#"
+merge "xor_4W_0/out" "m1_93_95#" 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -8 0 0 0 0
+merge "xor_4W_0/in_b" "inv_2W_1/input" 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -16 0 0 0 0
+merge "inv_2W_1/input" "m1_n149_43#"

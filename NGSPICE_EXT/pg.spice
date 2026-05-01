@@ -1,0 +1,261 @@
+* SPICE3 file created from pg.ext - technology: scmos
+.include TSMC_180nm.txt
+.option scale=10n
+
+M1000 pgchain3_0/xor_4W_0/out pgchain3_0/and_0/in1 pgchain3_0/xor_4W_0/a_21_n141# Gnd CMOSN w=8000 l=200
++  ad=4.8u pd=0.0172 as=4.8u ps=9.2m
+M1001 pgchain3_0/xor_4W_0/a_21_n141# pgchain3_0/and_0/in2 pgchain3_0/xor_4W_0/gnd Gnd CMOSN w=8000 l=200
++  ad=4.8u pd=9.2m as=4.8u ps=9.2m
+M1002 pgchain3_0/xor_4W_0/out pgchain3_0/and_0/in2 pgchain3_0/xor_4W_0/a_n15_n6# pgchain3_0/xor_4W_0/w_n21_n12# CMOSP w=16000 l=200
++  ad=9.6u pd=0.0172 as=9.6u ps=0.0172
+M1003 pgchain3_0/xor_4W_0/vdd pgchain3_0/xor_4W_0/in_a pgchain3_0/xor_4W_0/a_n15_n6# pgchain3_0/xor_4W_0/w_n21_n12# CMOSP w=16000 l=200
++  ad=9.6u pd=0.0172 as=9.6u ps=0.0332
+M1004 pgchain3_0/xor_4W_0/a_n7_n141# pgchain3_0/xor_4W_0/in_a pgchain3_0/xor_4W_0/out Gnd CMOSN w=8000 l=200
++  ad=4.8u pd=9.2m as=4.8u ps=0.0172
+M1005 pgchain3_0/xor_4W_0/a_n15_n6# pgchain3_0/xor_4W_0/in_b pgchain3_0/xor_4W_0/vdd pgchain3_0/xor_4W_0/w_n21_n12# CMOSP w=16000 l=200
++  ad=9.6u pd=0.0172 as=9.6u ps=0.0172
+M1006 pgchain3_0/xor_4W_0/a_n15_n6# pgchain3_0/and_0/in1 pgchain3_0/xor_4W_0/out pgchain3_0/xor_4W_0/w_n21_n12# CMOSP w=16000 l=200
++  ad=9.6u pd=0.0332 as=9.6u ps=0.0172
+M1007 pgchain3_0/xor_4W_0/gnd pgchain3_0/xor_4W_0/in_b pgchain3_0/xor_4W_0/a_n7_n141# Gnd CMOSN w=8000 l=200
++  ad=4.8u pd=9.2m as=4.8u ps=9.2m
+M1008 pgchain3_0/and_0/in1 pgchain3_0/xor_4W_0/in_a pgchain3_0/inv_2W_0/vdd pgchain3_0/inv_2W_0/w_n16_n6# CMOSP w=4000 l=200
++  ad=2u pd=9m as=2u ps=9m
+M1009 pgchain3_0/and_0/in1 pgchain3_0/xor_4W_0/in_a pgchain3_0/inv_2W_0/gnd Gnd CMOSN w=2000 l=200
++  ad=1u pd=5m as=1u ps=5m
+M1010 pgchain3_0/and_0/in2 pgchain3_0/xor_4W_0/in_b pgchain3_0/inv_2W_1/vdd pgchain3_0/inv_2W_1/w_n16_n6# CMOSP w=4000 l=200
++  ad=2u pd=9m as=2u ps=9m
+M1011 pgchain3_0/and_0/in2 pgchain3_0/xor_4W_0/in_b pgchain3_0/inv_2W_1/gnd Gnd CMOSN w=2000 l=200
++  ad=1u pd=5m as=1u ps=5m
+M1012 pgchain3_0/and_0/gnd pgchain3_0/and_0/in2 pgchain3_0/and_0/out Gnd CMOSN w=1200 l=200
++  ad=0.72u pd=3.6m as=0.48u ps=2m
+M1013 pgchain3_0/and_0/out pgchain3_0/and_0/in2 pgchain3_0/and_0/a_n11_n2# pgchain3_0/and_0/w_n25_n8# CMOSP w=4800 l=200
++  ad=2.88u pd=0.0108 as=1.92u ps=5.6m
+M1014 pgchain3_0/and_0/out pgchain3_0/and_0/in1 pgchain3_0/and_0/gnd Gnd CMOSN w=1200 l=200
++  ad=0.48u pd=2m as=0.72u ps=3.6m
+M1015 pgchain3_0/and_0/a_n11_n2# pgchain3_0/and_0/in1 pgchain3_0/and_0/vdd pgchain3_0/and_0/w_n25_n8# CMOSP w=4800 l=200
++  ad=1.92u pd=5.6m as=2.88u ps=0.0108
+M1016 pgchain1_0/xor_2W_0/out pgchain1_0/and_0/in2 pgchain1_0/xor_2W_0/a_n16_n9# pgchain1_0/xor_2W_0/w_n22_n15# CMOSP w=8000 l=200
++  ad=4.8u pd=9.2m as=4.8u ps=9.2m
+M1017 pgchain1_0/xor_2W_0/gnd pgchain1_0/xor_2W_0/in_b pgchain1_0/xor_2W_0/a_n8_n100# Gnd CMOSN w=4000 l=200
++  ad=2.4u pd=5.2m as=2.4u ps=5.2m
+M1018 pgchain1_0/xor_2W_0/a_20_n100# pgchain1_0/and_0/in2 pgchain1_0/xor_2W_0/gnd Gnd CMOSN w=4000 l=200
++  ad=2.4u pd=5.2m as=2.4u ps=5.2m
+M1019 pgchain1_0/xor_2W_0/vdd pgchain1_0/xor_2W_0/in_a pgchain1_0/xor_2W_0/a_n16_n9# pgchain1_0/xor_2W_0/w_n22_n15# CMOSP w=8000 l=200
++  ad=4.8u pd=9.2m as=4.8u ps=0.0172
+M1020 pgchain1_0/xor_2W_0/a_n16_n9# pgchain1_0/xor_2W_0/in_b pgchain1_0/xor_2W_0/vdd pgchain1_0/xor_2W_0/w_n22_n15# CMOSP w=8000 l=200
++  ad=4.8u pd=9.2m as=4.8u ps=9.2m
+M1021 pgchain1_0/xor_2W_0/a_n8_n100# pgchain1_0/xor_2W_0/in_a pgchain1_0/xor_2W_0/out Gnd CMOSN w=4000 l=200
++  ad=2.4u pd=5.2m as=2.4u ps=9.2m
+M1022 pgchain1_0/xor_2W_0/a_n16_n9# pgchain1_0/and_0/in1 pgchain1_0/xor_2W_0/out pgchain1_0/xor_2W_0/w_n22_n15# CMOSP w=8000 l=200
++  ad=4.8u pd=0.0172 as=4.8u ps=9.2m
+M1023 pgchain1_0/xor_2W_0/out pgchain1_0/and_0/in1 pgchain1_0/xor_2W_0/a_20_n100# Gnd CMOSN w=4000 l=200
++  ad=2.4u pd=9.2m as=2.4u ps=5.2m
+M1024 pgchain1_0/and_0/in1 pgchain1_0/xor_2W_0/in_a pgchain1_0/inv_W_0/gnd Gnd CMOSN w=1000 l=200
++  ad=0.5u pd=3m as=0.5u ps=3m
+M1025 pgchain1_0/and_0/in1 pgchain1_0/xor_2W_0/in_a pgchain1_0/inv_W_0/vdd pgchain1_0/inv_W_0/w_n10_n4# CMOSP w=2000 l=200
++  ad=1u pd=5m as=1u ps=5m
+M1026 pgchain1_0/and_0/in2 pgchain1_0/xor_2W_0/in_b pgchain1_0/inv_W_1/gnd Gnd CMOSN w=1000 l=200
++  ad=0.5u pd=3m as=0.5u ps=3m
+M1027 pgchain1_0/and_0/in2 pgchain1_0/xor_2W_0/in_b pgchain1_0/inv_W_1/vdd pgchain1_0/inv_W_1/w_n10_n4# CMOSP w=2000 l=200
++  ad=1u pd=5m as=1u ps=5m
+M1028 pgchain1_0/and_0/gnd pgchain1_0/and_0/in2 pgchain1_0/and_0/out Gnd CMOSN w=1200 l=200
++  ad=1.44u pd=7.2m as=0.96u ps=4m
+M1029 pgchain1_0/and_0/out pgchain1_0/and_0/in2 pgchain1_0/and_0/a_n11_n2# pgchain1_0/and_0/w_n25_n8# CMOSP w=4800 l=200
++  ad=2.88u pd=0.0108 as=3.84u ps=0.0112
+M1030 pgchain1_0/and_0/out pgchain1_0/and_0/in1 pgchain1_0/and_0/gnd Gnd CMOSN w=1200 l=200
++  ad=0 pd=0 as=0 ps=0
+M1031 pgchain1_0/and_0/a_n11_n2# pgchain1_0/and_0/in1 pgchain1_0/and_0/vdd pgchain1_0/and_0/w_n25_n8# CMOSP w=4800 l=200
++  ad=0 pd=0 as=2.88u ps=0.0108
+M1032 pgchain1_1/xor_2W_0/out pgchain1_1/and_0/in2 pgchain1_1/xor_2W_0/a_n16_n9# pgchain1_1/xor_2W_0/w_n22_n15# CMOSP w=8000 l=200
++  ad=9.6u pd=0.0184 as=19.2u ps=0.0528
+M1033 pgchain1_1/xor_2W_0/gnd pgchain1_1/xor_2W_0/in_b pgchain1_1/xor_2W_0/a_n8_n100# Gnd CMOSN w=4000 l=200
++  ad=4.8u pd=0.0104 as=4.8u ps=0.0104
+M1034 pgchain1_1/xor_2W_0/a_20_n100# pgchain1_1/and_0/in2 pgchain1_1/xor_2W_0/gnd Gnd CMOSN w=4000 l=200
++  ad=4.8u pd=0.0104 as=0 ps=0
+M1035 pgchain1_1/xor_2W_0/vdd pgchain1_1/xor_2W_0/in_a pgchain1_1/xor_2W_0/a_n16_n9# pgchain1_1/xor_2W_0/w_n22_n15# CMOSP w=8000 l=200
++  ad=9.6u pd=0.0184 as=0 ps=0
+M1036 pgchain1_1/xor_2W_0/a_n16_n9# pgchain1_1/xor_2W_0/in_b pgchain1_1/xor_2W_0/vdd pgchain1_1/xor_2W_0/w_n22_n15# CMOSP w=8000 l=200
++  ad=0 pd=0 as=0 ps=0
+M1037 pgchain1_1/xor_2W_0/a_n8_n100# pgchain1_1/xor_2W_0/in_a pgchain1_1/xor_2W_0/out Gnd CMOSN w=4000 l=200
++  ad=0 pd=0 as=4.8u ps=0.0184
+M1038 pgchain1_1/xor_2W_0/a_n16_n9# pgchain1_1/and_0/in1 pgchain1_1/xor_2W_0/out pgchain1_1/xor_2W_0/w_n22_n15# CMOSP w=8000 l=200
++  ad=0 pd=0 as=0 ps=0
+M1039 pgchain1_1/xor_2W_0/out pgchain1_1/and_0/in1 pgchain1_1/xor_2W_0/a_20_n100# Gnd CMOSN w=4000 l=200
++  ad=0 pd=0 as=0 ps=0
+M1040 pgchain1_1/and_0/in1 pgchain1_1/xor_2W_0/in_a pgchain1_1/inv_W_0/gnd Gnd CMOSN w=1000 l=200
++  ad=0.5u pd=3m as=0.5u ps=3m
+M1041 pgchain1_1/and_0/in1 pgchain1_1/xor_2W_0/in_a pgchain1_1/inv_W_0/vdd pgchain1_1/inv_W_0/w_n10_n4# CMOSP w=2000 l=200
++  ad=1u pd=5m as=1u ps=5m
+M1042 pgchain1_1/and_0/in2 pgchain1_1/xor_2W_0/in_b pgchain1_1/inv_W_1/gnd Gnd CMOSN w=1000 l=200
++  ad=0.5u pd=3m as=0.5u ps=3m
+M1043 pgchain1_1/and_0/in2 pgchain1_1/xor_2W_0/in_b pgchain1_1/inv_W_1/vdd pgchain1_1/inv_W_1/w_n10_n4# CMOSP w=2000 l=200
++  ad=1u pd=5m as=1u ps=5m
+M1044 pgchain1_1/and_0/gnd pgchain1_1/and_0/in2 pgchain1_1/and_0/out Gnd CMOSN w=1200 l=200
++  ad=1.44u pd=7.2m as=0.96u ps=4m
+M1045 pgchain1_1/and_0/out pgchain1_1/and_0/in2 pgchain1_1/and_0/a_n11_n2# pgchain1_1/and_0/w_n25_n8# CMOSP w=4800 l=200
++  ad=2.88u pd=0.0108 as=3.84u ps=0.0112
+M1046 pgchain1_1/and_0/out pgchain1_1/and_0/in1 pgchain1_1/and_0/gnd Gnd CMOSN w=1200 l=200
++  ad=0 pd=0 as=0 ps=0
+M1047 pgchain1_1/and_0/a_n11_n2# pgchain1_1/and_0/in1 pgchain1_1/and_0/vdd pgchain1_1/and_0/w_n25_n8# CMOSP w=4800 l=200
++  ad=0 pd=0 as=2.88u ps=0.0108
+M1048 pgchain1_2/xor_2W_0/out pgchain1_2/and_0/in2 pgchain1_2/xor_2W_0/a_n16_n9# pgchain1_2/xor_2W_0/w_n22_n15# CMOSP w=8000 l=200
++  ad=9.6u pd=0.0184 as=19.2u ps=0.0528
+M1049 pgchain1_2/xor_2W_0/gnd pgchain1_2/xor_2W_0/in_b pgchain1_2/xor_2W_0/a_n8_n100# Gnd CMOSN w=4000 l=200
++  ad=4.8u pd=0.0104 as=4.8u ps=0.0104
+M1050 pgchain1_2/xor_2W_0/a_20_n100# pgchain1_2/and_0/in2 pgchain1_2/xor_2W_0/gnd Gnd CMOSN w=4000 l=200
++  ad=4.8u pd=0.0104 as=0 ps=0
+M1051 pgchain1_2/xor_2W_0/vdd pgchain1_2/xor_2W_0/in_a pgchain1_2/xor_2W_0/a_n16_n9# pgchain1_2/xor_2W_0/w_n22_n15# CMOSP w=8000 l=200
++  ad=9.6u pd=0.0184 as=0 ps=0
+M1052 pgchain1_2/xor_2W_0/a_n16_n9# pgchain1_2/xor_2W_0/in_b pgchain1_2/xor_2W_0/vdd pgchain1_2/xor_2W_0/w_n22_n15# CMOSP w=8000 l=200
++  ad=0 pd=0 as=0 ps=0
+M1053 pgchain1_2/xor_2W_0/a_n8_n100# pgchain1_2/xor_2W_0/in_a pgchain1_2/xor_2W_0/out Gnd CMOSN w=4000 l=200
++  ad=0 pd=0 as=4.8u ps=0.0184
+M1054 pgchain1_2/xor_2W_0/a_n16_n9# pgchain1_2/and_0/in1 pgchain1_2/xor_2W_0/out pgchain1_2/xor_2W_0/w_n22_n15# CMOSP w=8000 l=200
++  ad=0 pd=0 as=0 ps=0
+M1055 pgchain1_2/xor_2W_0/out pgchain1_2/and_0/in1 pgchain1_2/xor_2W_0/a_20_n100# Gnd CMOSN w=4000 l=200
++  ad=0 pd=0 as=0 ps=0
+M1056 pgchain1_2/and_0/in1 pgchain1_2/xor_2W_0/in_a pgchain1_2/inv_W_0/gnd Gnd CMOSN w=1000 l=200
++  ad=0.5u pd=3m as=0.5u ps=3m
+M1057 pgchain1_2/and_0/in1 pgchain1_2/xor_2W_0/in_a pgchain1_2/inv_W_0/vdd pgchain1_2/inv_W_0/w_n10_n4# CMOSP w=2000 l=200
++  ad=1u pd=5m as=1u ps=5m
+M1058 pgchain1_2/and_0/in2 pgchain1_2/xor_2W_0/in_b pgchain1_2/inv_W_1/gnd Gnd CMOSN w=1000 l=200
++  ad=0.5u pd=3m as=0.5u ps=3m
+M1059 pgchain1_2/and_0/in2 pgchain1_2/xor_2W_0/in_b pgchain1_2/inv_W_1/vdd pgchain1_2/inv_W_1/w_n10_n4# CMOSP w=2000 l=200
++  ad=1u pd=5m as=1u ps=5m
+M1060 pgchain1_2/and_0/gnd pgchain1_2/and_0/in2 pgchain1_2/and_0/out Gnd CMOSN w=1200 l=200
++  ad=1.44u pd=7.2m as=0.96u ps=4m
+M1061 pgchain1_2/and_0/out pgchain1_2/and_0/in2 pgchain1_2/and_0/a_n11_n2# pgchain1_2/and_0/w_n25_n8# CMOSP w=4800 l=200
++  ad=2.88u pd=0.0108 as=3.84u ps=0.0112
+M1062 pgchain1_2/and_0/out pgchain1_2/and_0/in1 pgchain1_2/and_0/gnd Gnd CMOSN w=1200 l=200
++  ad=0 pd=0 as=0 ps=0
+M1063 pgchain1_2/and_0/a_n11_n2# pgchain1_2/and_0/in1 pgchain1_2/and_0/vdd pgchain1_2/and_0/w_n25_n8# CMOSP w=4800 l=200
++  ad=0 pd=0 as=2.88u ps=0.0108
+M1064 pgchain2_0/xor_W_0/a_n5_n78# pgchain2_0/xor_W_0/in_a pgchain2_0/xor_W_0/out Gnd CMOSN w=2000 l=200
++  ad=1.2u pd=3.2m as=1.2u ps=5.2m
+M1065 pgchain2_0/xor_W_0/a_n13_n5# pgchain2_0/xor_W_0/in_b pgchain2_0/xor_W_0/vdd pgchain2_0/xor_W_0/w_n19_n11# CMOSP w=4000 l=200
++  ad=2.4u pd=5.2m as=2.4u ps=5.2m
+M1066 pgchain2_0/xor_W_0/vdd pgchain2_0/xor_W_0/in_a pgchain2_0/xor_W_0/a_n13_n5# pgchain2_0/xor_W_0/w_n19_n11# CMOSP w=4000 l=200
++  ad=2.4u pd=5.2m as=2.4u ps=9.2m
+M1067 pgchain2_0/xor_W_0/out pgchain2_0/and_0/in2 pgchain2_0/xor_W_0/a_n13_n5# pgchain2_0/xor_W_0/w_n19_n11# CMOSP w=4000 l=200
++  ad=2.4u pd=5.2m as=2.4u ps=5.2m
+M1068 pgchain2_0/xor_W_0/out pgchain2_0/and_0/in1 pgchain2_0/xor_W_0/a_23_n78# Gnd CMOSN w=2000 l=200
++  ad=1.2u pd=5.2m as=1.2u ps=3.2m
+M1069 pgchain2_0/xor_W_0/a_n13_n5# pgchain2_0/and_0/in1 pgchain2_0/xor_W_0/out pgchain2_0/xor_W_0/w_n19_n11# CMOSP w=4000 l=200
++  ad=2.4u pd=9.2m as=2.4u ps=5.2m
+M1070 pgchain2_0/xor_W_0/gnd pgchain2_0/xor_W_0/in_b pgchain2_0/xor_W_0/a_n5_n78# Gnd CMOSN w=2000 l=200
++  ad=1.2u pd=3.2m as=1.2u ps=3.2m
+M1071 pgchain2_0/xor_W_0/a_23_n78# pgchain2_0/and_0/in2 pgchain2_0/xor_W_0/gnd Gnd CMOSN w=2000 l=200
++  ad=1.2u pd=3.2m as=1.2u ps=3.2m
+M1072 pgchain2_0/and_0/in1 pgchain2_0/xor_W_0/in_a pgchain2_0/inv_W_2_0/gnd Gnd CMOSN w=500 l=200
++  ad=0.25u pd=2m as=0.25u ps=2m
+M1073 pgchain2_0/and_0/in1 pgchain2_0/xor_W_0/in_a pgchain2_0/inv_W_2_0/vdd pgchain2_0/inv_W_2_0/w_n12_n15# CMOSP w=1000 l=200
++  ad=0.5u pd=3m as=0.5u ps=3m
+M1074 pgchain2_0/and_0/in2 pgchain2_0/xor_W_0/in_b pgchain2_0/inv_W_2_1/gnd Gnd CMOSN w=500 l=200
++  ad=0.25u pd=2m as=0.25u ps=2m
+M1075 pgchain2_0/and_0/in2 pgchain2_0/xor_W_0/in_b pgchain2_0/inv_W_2_1/vdd pgchain2_0/inv_W_2_1/w_n12_n15# CMOSP w=1000 l=200
++  ad=0.5u pd=3m as=0.5u ps=3m
+M1076 pgchain2_0/and_0/gnd pgchain2_0/and_0/in2 pgchain2_0/and_0/out Gnd CMOSN w=1200 l=200
++  ad=1.44u pd=7.2m as=0.96u ps=4m
+M1077 pgchain2_0/and_0/out pgchain2_0/and_0/in2 pgchain2_0/and_0/a_n11_n2# pgchain2_0/and_0/w_n25_n8# CMOSP w=4800 l=200
++  ad=2.88u pd=0.0108 as=3.84u ps=0.0112
+M1078 pgchain2_0/and_0/out pgchain2_0/and_0/in1 pgchain2_0/and_0/gnd Gnd CMOSN w=1200 l=200
++  ad=0 pd=0 as=0 ps=0
+M1079 pgchain2_0/and_0/a_n11_n2# pgchain2_0/and_0/in1 pgchain2_0/and_0/vdd pgchain2_0/and_0/w_n25_n8# CMOSP w=4800 l=200
++  ad=0 pd=0 as=2.88u ps=0.0108
+C0 pgchain2_0/inv_W_2_1/w_n12_n15# pgchain2_0/inv_W_2_1/vdd 2.068f
+C1 pgchain3_0/xor_4W_0/a_n15_n6# pgchain3_0/xor_4W_0/w_n21_n12# 4.512f
+C2 pgchain3_0/inv_2W_1/w_n16_n6# pgchain3_0/inv_2W_1/vdd 2.068f
+C3 pgchain1_0/inv_W_1/vdd pgchain1_0/inv_W_1/w_n10_n4# 2.068f
+C4 pgchain2_0/xor_W_0/w_n19_n11# pgchain2_0/xor_W_0/out 2.632f
+C5 pgchain1_1/inv_W_0/vdd pgchain1_1/inv_W_0/w_n10_n4# 2.068f
+C6 pgchain1_2/inv_W_1/w_n10_n4# pgchain1_2/inv_W_1/vdd 2.068f
+C7 pgchain2_0/xor_W_0/a_n13_n5# pgchain2_0/xor_W_0/w_n19_n11# 6.392f
+C8 pgchain3_0/xor_4W_0/out pgchain3_0/xor_4W_0/w_n21_n12# 2.632f
+C9 pgchain2_0/and_0/vdd pgchain2_0/and_0/w_n25_n8# 2.632f
+C10 pgchain1_2/inv_W_0/w_n10_n4# pgchain1_2/inv_W_0/vdd 2.068f
+C11 pgchain1_0/and_0/w_n25_n8# pgchain1_0/and_0/vdd 2.632f
+C12 pgchain1_1/and_0/w_n25_n8# pgchain1_1/and_0/vdd 2.632f
+C13 pgchain1_1/xor_2W_0/w_n22_n15# pgchain1_1/xor_2W_0/a_n16_n9# 4.512f
+C14 pgchain2_0/inv_W_2_0/w_n12_n15# pgchain2_0/inv_W_2_0/vdd 2.068f
+C15 pgchain1_0/inv_W_0/w_n10_n4# pgchain1_0/inv_W_0/vdd 2.068f
+C16 pgchain1_0/xor_2W_0/a_n16_n9# pgchain1_0/xor_2W_0/w_n22_n15# 4.512f
+C17 pgchain1_2/and_0/w_n25_n8# pgchain1_2/and_0/vdd 2.632f
+C18 pgchain3_0/inv_2W_0/vdd pgchain3_0/inv_2W_0/w_n16_n6# 2.068f
+C19 pgchain1_2/xor_2W_0/a_n16_n9# pgchain1_2/xor_2W_0/w_n22_n15# 4.512f
+C20 pgchain3_0/and_0/vdd pgchain3_0/and_0/w_n25_n8# 2.632f
+C21 pgchain1_1/inv_W_1/vdd pgchain1_1/inv_W_1/w_n10_n4# 2.068f
+C22 pgchain2_0/and_0/gnd 0 10.528f  
+C23 pgchain2_0/and_0/out 0 13.724f  
+C24 pgchain2_0/and_0/vdd 0 6.956f  
+C25 pgchain2_0/inv_W_2_1/gnd 0 7.332f  
+C26 pgchain2_0/and_0/in2 0 0.100102p  
+C27 pgchain2_0/inv_W_2_1/vdd 0 5.264f  
+C28 pgchain2_0/xor_W_0/in_b 0 53.906f  
+C29 pgchain2_0/inv_W_2_0/gnd 0 7.332f  
+C30 pgchain2_0/and_0/in1 0 0.105744p  
+C31 pgchain2_0/inv_W_2_0/vdd 0 5.264f  
+C32 pgchain2_0/xor_W_0/in_a 0 48.829998f  
+C33 pgchain2_0/xor_W_0/gnd 0 16.355999f  
+C34 pgchain2_0/xor_W_0/out 0 50.760002f  
+C35 pgchain2_0/xor_W_0/vdd 0 16.355999f  
+C36 pgchain2_0/xor_W_0/a_n13_n5# 0 7.895999f  
+C37 pgchain1_2/and_0/gnd 0 10.528f  
+C38 pgchain1_2/and_0/out 0 14.1f  
+C39 pgchain1_2/and_0/vdd 0 6.956f  
+C40 pgchain1_2/inv_W_1/gnd 0 7.144001f  
+C41 pgchain1_2/and_0/in2 0 0.110014p  
+C42 pgchain1_2/inv_W_1/vdd 0 5.264f  
+C43 pgchain1_2/xor_2W_0/in_b 0 69.310005f  
+C44 pgchain1_2/inv_W_0/gnd 0 7.144001f  
+C45 pgchain1_2/inv_W_0/vdd 0 5.264f  
+C46 pgchain1_2/xor_2W_0/gnd 0 15.98f  
+C47 pgchain1_2/xor_2W_0/out 0 56.024f  
+C48 pgchain1_2/xor_2W_0/vdd 0 16.168001f  
+C49 pgchain1_2/xor_2W_0/a_n16_n9# 0 10.528f  
+C50 pgchain1_2/and_0/in1 0 0.129708p  
+C51 pgchain1_2/xor_2W_0/in_a 0 66.114f  
+C52 pgchain1_1/and_0/gnd 0 10.528f  
+C53 pgchain1_1/and_0/out 0 14.1f  
+C54 pgchain1_1/and_0/vdd 0 6.956f  
+C55 pgchain1_1/inv_W_1/gnd 0 7.144001f  
+C56 pgchain1_1/and_0/in2 0 0.110014p  
+C57 pgchain1_1/inv_W_1/vdd 0 5.264f  
+C58 pgchain1_1/xor_2W_0/in_b 0 69.310005f  
+C59 pgchain1_1/inv_W_0/gnd 0 7.144001f  
+C60 pgchain1_1/inv_W_0/vdd 0 5.264f  
+C61 pgchain1_1/xor_2W_0/gnd 0 15.98f  
+C62 pgchain1_1/xor_2W_0/out 0 56.024f  
+C63 pgchain1_1/xor_2W_0/vdd 0 16.168001f  
+C64 pgchain1_1/xor_2W_0/a_n16_n9# 0 10.528f  
+C65 pgchain1_1/and_0/in1 0 0.129708p  
+C66 pgchain1_1/xor_2W_0/in_a 0 66.114f  
+C67 pgchain1_0/and_0/gnd 0 10.528f  
+C68 pgchain1_0/and_0/out 0 14.1f  
+C69 pgchain1_0/and_0/vdd 0 6.956f  
+C70 pgchain1_0/inv_W_1/gnd 0 7.144001f  
+C71 pgchain1_0/and_0/in2 0 0.110014p  
+C72 pgchain1_0/inv_W_1/vdd 0 5.264f  
+C73 pgchain1_0/xor_2W_0/in_b 0 69.310005f  
+C74 pgchain1_0/inv_W_0/gnd 0 7.144001f  
+C75 pgchain1_0/inv_W_0/vdd 0 5.264f  
+C76 pgchain1_0/xor_2W_0/gnd 0 15.98f  
+C77 pgchain1_0/xor_2W_0/out 0 56.024f  
+C78 pgchain1_0/xor_2W_0/vdd 0 16.168001f  
+C79 pgchain1_0/xor_2W_0/a_n16_n9# 0 10.528f  
+C80 pgchain1_0/and_0/in1 0 0.129708p  
+C81 pgchain1_0/xor_2W_0/in_a 0 66.114f  
+C82 pgchain3_0/and_0/gnd 0 10.528f  
+C83 pgchain3_0/and_0/out 0 13.912001f  
+C84 pgchain3_0/and_0/vdd 0 6.956f  
+C85 pgchain3_0/inv_2W_1/gnd 0 7.332f  
+C86 pgchain3_0/and_0/in2 0 0.13923p  
+C87 pgchain3_0/inv_2W_1/vdd 0 5.264f  
+C88 pgchain3_0/xor_4W_0/in_b 0 78.633995f  
+C89 pgchain3_0/inv_2W_0/gnd 0 7.332f  
+C90 pgchain3_0/and_0/in1 0 0.166944p  
+C91 pgchain3_0/inv_2W_0/vdd 0 5.264f  
+C92 pgchain3_0/xor_4W_0/in_a 0 72.242f  
+C93 pgchain3_0/xor_4W_0/gnd 0 16.731998f  
+C94 pgchain3_0/xor_4W_0/out 0 53.016f  
+C95 pgchain3_0/xor_4W_0/vdd 0 17.108f  
+C96 pgchain3_0/xor_4W_0/a_n15_n6# 0 10.528f  

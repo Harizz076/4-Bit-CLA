@@ -1,0 +1,95 @@
+** Propagate and Generate Block using NGSPICE
+** Inputs: a3, a2, a1, a0, b3, b2, b1, b0
+** Outputs: p3, p2, p1, p0, g3, g2, g1, g0
+
+** Include the technology-specific MOSFET models
+.include "TSMC_180nm.txt"
+
+** Define power supply
+VDD vdd 0 DC 5V
+
+** Parameters
+.param time=5n
+.param lambda = 0.09u
+.param L = 2*lambda
+.param Wn = 20*lambda
+.param Wp = 10*lambda
+.global gnd vdd
+
+** NMOS subcircuit
+.SUBCKT NSWITCH gate src drn width=1
+M1 drn gate src gnd CMOSN W={width} L={L}
++ AS={5*width*L/2} PS={10*L/2+2*width}
++ AD={5*width*L/2} PD={10*L/2+2*width}
+.ENDS NSWITCH
+
+** PMOS subcircuit
+.SUBCKT PSWITCH gate src drn width=1
+M2 drn gate src vdd CMOSP W={width} L={L}
++ AS={5*width*L/2} PS={10*L/2+2*width}
++ AD={5*width*L/2} PD={10*L/2+2*width}
+.ENDS PSWITCH
+
+** Subcircuit for XOR gate
+.SUBCKT XOR_GATE a b a_bar b_bar out
+X1 a vdd n1 PSWITCH width={4*Wp}
+X2 b_bar n1 out PSWITCH width={4*Wp}
+X3 a_bar vdd n2 PSWITCH width={4*Wp}
+X4 b out n2 PSWITCH width={4*Wp}
+X5 a gnd n3 NSWITCH width={2*Wp}
+X6 b n3 out NSWITCH width={2*Wp}
+X7 a_bar gnd n4 NSWITCH width={2*Wp}
+X8 b_bar out n4 NSWITCH width={2*Wp}
+.ENDS XOR_GATE
+
+
+
+** Subcircuit for AND gate
+.SUBCKT AND_GATE a b a_bar b_bar out
+X11 a vdd n1 PSWITCH width={4*Wp}
+X12 b n1 out PSWITCH width={4*Wp}
+X13 a gnd n2 NSWITCH width={2*Wp}
+X14 b n2 out NSWITCH width={2*Wp}
+.ENDS AND_GATE
+
+** Generate input voltage sources for testing
+Va3 a3 0 PULSE(0 5 0 1n 1n 50n 100n)
+Vb3 b3 0 PULSE(0 5 0 1n 1n 100n 200n)
+
+** Generate complementary inputs
+Va3_bar a3_bar 0 PULSE(5 0 0 1n 1n 50n 100n)
+Vb3_bar b3_bar 0 PULSE(5 0 0 1n 1n 100n 200n)
+
+** Similarly for other inputs
+Va2 a2 0 PULSE(0 5 0 1n 1n 50n 100n)
+Vb2 b2 0 PULSE(0 5 0 1n 1n 100n 200n)
+Va2_bar a2_bar 0 PULSE(5 0 0 1n 1n 50n 100n)
+Vb2_bar b2_bar 0 PULSE(5 0 0 1n 1n 100n 200n)
+
+Va1 a1 0 PULSE(0 5 0 1n 1n 50n 100n)
+Vb1 b1 0 PULSE(0 5 0 1n 1n 100n 200n)
+Va1_bar a1_bar 0 PULSE(5 0 0 1n 1n 50n 100n)
+Vb1_bar b1_bar 0 PULSE(5 0 0 1n 1n 100n 200n)
+
+
+**NOTE: AS LOAD WILL INCREASE IN BIGGER PG BLOCKS, WIDTHS OF DIFFERENT PG BLOCKS HAVE BEEN KEPT DIFFERENT IN MAGIC BUT THEY ARE ALL SAME HERE IN NGSPICE CODE
+
+** Circuit instantiation
+XXOR1 a1 b1 a1_bar b1_bar p1 XOR_GATE
+XAND1 a1 b1 a1_bar b1_bar g1 AND_GATE
+XXOR2 a2 b2 a2_bar b2_bar p2 XOR_GATE
+XAND2 a2 b2 a2_bar b2_bar g2 AND_GATE
+XXOR3 a3 b3 a3_bar b3_bar p3 XOR_GATE
+XAND3 a3 b3 a3_bar b3_bar g3 AND_GATE
+
+** Simulation control
+.control
+set temp=27
+tran 0.1n 200n 
+plot a1 b1+5 v(p1)+10 v(g1)+15
+plot a2 b2+5 v(p2)+10 v(g2)+15
+plot a3 b3+5 v(p3)+10 v(g3)+15
+wrdata output.txt v(p1) v(g1) v(p2) v(g2) v(p3) v(g3)
+.endc
+
+.end

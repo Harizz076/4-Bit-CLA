@@ -1,0 +1,248 @@
+testing c2
+.include TSMC_180nm.txt
+
+* Parameters
+.param time=50n
+.param lambda = 0.09u
+.param L = 2*lambda
+.param Wn = 20*lambda
+.param Wp = 20*lambda
+.global gnd vdd
+
+
+.SUBCKT Nswitch gate src drn width=1
+M1 drn gate src gnd CMOSN W={width} L={L}
++ AS={5*width*L/2} PS={10*L/2+2*width}
++ AD={5*width*L/2} PD={10*L/2+2*width}
+.ENDS Nswitch
+
+.SUBCKT Pswitch gate src drn width=1
+M2 drn gate src vdd CMOSP W={width} L={L}
++ AS={5*width*L/2} PS={10*L/2+2*width}
++ AD={5*width*L/2} PD={10*L/2+2*width}
+.ENDS Pswitch
+
+.subckt inverter in out 
+X1 in vdd out Pswitch width={wp/2}
+X2 in gnd out Nswitch width={wn}
+.ends
+
+
+** Subcircuit for XOR gate
+.SUBCKT XOR_GATE a b a_bar b_bar out
+X1 a vdd n1 PSWITCH width={4*Wp}
+X2 b_bar n1 out PSWITCH width={4*Wp}
+X3 a_bar vdd n2 PSWITCH width={4*Wp}
+X4 b out n2 PSWITCH width={4*Wp}
+X5 a gnd n3 NSWITCH width={2*Wp}
+X6 b n3 out NSWITCH width={2*Wp}
+X7 a_bar gnd n4 NSWITCH width={2*Wp}
+X8 b_bar out n4 NSWITCH width={2*Wp}
+.ENDS XOR_GATE
+
+
+
+** Subcircuit for AND gate
+.SUBCKT AND_GATE a b a_bar b_bar out
+X11 a vdd n1 PSWITCH width={4*Wp}
+X12 b n1 out PSWITCH width={4*Wp}
+X13 a gnd n2 NSWITCH width={2*Wp}
+X14 b n2 out NSWITCH width={2*Wp}
+.ENDS AND_GATE
+
+
+
+
+* Voltage Sources
+Vdd vdd gnd DC 1.8
+
+* Define PWL for clock period
+* Adjust PWL sources for time alignment
+VVa0 a0 gnd pwl (0 0v {time-0.1ns} 0v {time} 1.8v {2*time} 1.8v)
+Va0_bar a0_bar gnd pwl (0 1.8v {time-0.1ns} 1.8v {time} 0v {2*time} 0v)
+
+Vb0 b0 0 0
+Vb0_bar b0_bar 0 1.8
+
+Va1 a1 0 0
+Vb1 b1 gnd pwl (0 0v {time-0.1ns} 0v {time} 1.8v {2*time} 1.8v)
+Va1_bar a1_bar 0 1.8
+Vb1_bar b1_bar gnd pwl (0 1.8v {time-0.1ns} 1.8v {time} 0v {2*time} 0v)
+
+Va2 a2 0 0
+Vb2 b2 0 0
+Va2_bar a2_bar 0 1.8
+Vb2_bar b2_bar 0 1.8
+
+Va3 a3 0 0
+Vb3 b3 0 0
+Va3_bar a3_bar 0 1.8
+Vb3_bar b3_bar 0 1.8
+
+* Clock signal
+Vinclk clk gnd PULSE(0 1.8 0n 0.1n 0.1n {time} {2*time})
+vinclkbar clk_bar gnd PULSE( 1.8 0 0n 0.1n 0.1n {time} {2*time})
+
+
+
+.subckt inv in out
+X1 in vdd out Pswitch width={wp}
+X2 in vss out Nswitch width={wn}
+.ends
+
+*** Tristate Buffer*
+.SUBCKT tristate in en enb out
+X1 in vdd n1 Pswitch width={2*Wp}
+X2 enb n1 out Pswitch width={2*Wp}
+X3 en out n2 Nswitch width={Wn/2}
+X4 in vss n2 Nswitch width={Wn/2}
+.ENDS tristate
+
+*** D Latch Subcircuit**
+.SUBCKT dlatch d clk clk_b q q_b
+Xtristate1 d clk clk_b q_b tristate
+Xinv1 q_b q inv
+Xtristate2 q clk_b clk q_b tristate
+.ENDS dlatch
+
+
+.SUBCKT dff d clk q q_b 
+Xclk_inv clk clk_b vdd vss inv
+Xmaster_latch d clk_b clk master_q master_qb dlatch
+Xslave_latch master_q clk clk_b q q_b dlatch
+.ENDS dff
+
+
+Xra0d1 a0 clk qa0 qa0_bar dff
+Xra1d1 a1 clk qa1 qa1_bar dff
+Xra2d1 a2 clk qa2 qa2_bar dff
+Xra3d1 a3 clk qa3 qa3_bar dff
+
+Xrb0d1 b0 clk qb0 qb0_bar dff
+Xrb1d1 b1 clk qb1 qb1_bar dff
+Xrb2d1 b2 clk qb2 qb2_bar dff
+Xrb3d1 b3 clk qb3 qb3_bar dff
+
+*  PG BLOCK 
+**********************
+** Circuit instantiation
+XXOR0 qa0 qb0 qa0_bar qb0_bar p0 XOR_GATE
+XAND0 qa0 qb0 qa0_bar qb0_bar g0 AND_GATE
+XXOR1 qa1 qb1 qa1_bar qb1_bar p1 XOR_GATE
+XAND1 qa1 qb1 qa1_bar qb1_bar g1 AND_GATE
+XXOR2 qa2 qb2 qa2_bar qb2_bar p2 XOR_GATE
+XAND2 qa2 qb2 qa2_bar qb2_bar g2 AND_GATE
+XXOR3 qa3 qb3 qa3_bar qb3_bar p3 XOR_GATE
+XAND3 qa3 qb3 qa3_bar qb3_bar g3 AND_GATE
+
+
+* CLA blocks 
+*********
+* C1
+X1 p0 VDD N1 Pswitch width={4*wp}
+X2 c0 VDD N1 Pswitch width={4*wp}
+X3 g0 N1 C1  Pswitch width={4*wp}
+
+X11 p0 C1 N2 Nswitch width=(2*wp)
+X12 c0 n2 gnd Nswitch width={2*wp}
+X13 g0 C1 gnd Nswitch width={wp}
+
+X20 C1 C10 inverter
+
+*C2
+Xi4 co VDD N3 Pswitch width={8*wp}
+Xi5 go N3 N4 Pswitch width={8*wp}
+Xi6 g1 N4 C2 Pswitch width={4*wp}
+xi7 p0 VDD N3 Pswitch width={8*wp}
+xi8 p1 VDD N4 Pswitch width={4*wp}
+
+Xi14 p1 C2 N5 Nswitch width={2*wp}
+Xi15 p0 N5 N6 Nswitch width={4*wp}
+Xi16 c0 N6 0 Nswitch width={4*wp}
+xi17 g0 N5 0 Nswitch width={2*wp}
+xi18 g1 C2 0 Nswitch width={wp}
+
+Xi20 C2 C12 inverter
+
+*C3
+Xii1 co VDD N7 Pswitch width={16*wp}
+Xii2 g0 N7 N8 Pswitch width={16*wp}
+Xii3 g1 N8 N9 Pswitch width= {8*wp}
+Xii4 g2 N9 C3 Pswitch width={4*wp}
+Xii5 p0 VDD N7 Pswitch width={16*wp}
+Xii6 p1 VDD N8 Pswitch width={8*wp}
+Xii7 p2 VDD N9 Pswitch width={8*wp}
+
+Xii11 p2 C3 N10 Nswitch width={2*wp}
+Xii12 p1 N10 N11 Nswitch width={4*wp}
+Xii13 p0 N11 N12 Nswitch width={8*wp}
+Xii14 c0 N12 0 Nswitch width={8*wp}
+Xii15 g0 N11 0 Nswitch width={4*wp}
+Xii16 g1 N10 0 Nswitch width={2*wp}
+Xii17 g2 C3 0 Nswitch width={Wp}
+
+Xii20 C3 C13 inverter
+
+*C4
+Xiii1 co VDD N13 Pswitch width={32*wp}
+Xiii2 g0 N13 N14 Pswitch width={32*wp}
+Xiii3 g1 N14 N15 Pswitch width={16*wp}
+Xiii4 g2 N15 N16 Pswitch width={8*wp}
+Xiii5 g3 N16 C4 Pswitch width={4*wp}
+Xiii6 p0 VDD N13 Pswitch width={32*wp}
+Xiii7 p1 VDD N14 Pswitch width={16*wp}
+Xiii8 p2 VDD N15 Pswitch width={8*wp}
+Xiii9 p3 VDD N16 Pswitch width={4*wp}
+ 
+Xiii11 p3 C4 N17 Nswitch width={2*wp}
+Xiii12 p2 N17 N18 Nswitch width={4*wp}
+Xiii13 p1 N18 N19 Nswitch width={8*wp}
+Xiii14 p0 N19 N20 Nswitch width={16*wp}
+Xiii15 c0 N20 0 Nswitch width={16*wp}
+Xiii16 g0 N19 0 Nswitch width={8*wp}
+Xiii17 g1 N18 0 Nswitch width={4*wp}
+Xiii18 g2 N17 0 Nswitch width={2*wp}
+Xiii19 g3 C4 0 Nswitch width={wp}
+
+Xiii20 C4 C14 inverter
+********
+Xinv299 c1 c1_bar inverter
+Xinv399 c2 c2_bar inverter
+Xinv499 c3 c3_bar inverter
+
+********
+
+Xxoras1 a0   b0 a0_bar b0_bar  s0 xor_gate
+
+Xxor21 a1  b1 a1_bar b1_bar  ps1 xor_gate
+xinv219 ps1 ps1_bar inverter
+Xxor22 ps1  c1 ps1_bar c1_bar  s1 xor_gate
+
+Xxor31 a2  b2 a2_bar b2_bar  ps2 xor_gate
+Xinv2x13 ps2 ps2_bar inverter
+Xxor32 ps2  c2 ps2_bar c2_bar  s2 xor_gate
+
+Xxor41 a3  b3 a3_bar b3_bar  ps3 xor_gate
+Xinv213 ps3 ps3_bar inverter
+Xxor42 ps3  c3 ps3_bar c3_bar  s3 xor_gate
+
+
+X8753s0 s0 clk outs0 outs0_bar dff
+X8753s1 s1 clk outs1 outs1_bar dff
+X8753s2 s2 clk outs2 outs2_bar dff
+X8753s3 s3 clk outs3 outs3_bar dff
+X8753c4 c4 clk outc4 outc4_bar dff
+
+* Analysis commands
+.control
+set hcopypscolor = 1 
+set color0=white 
+set color1=black 
+set temp=27
+tran 0.1n 200n
+plot a0 a1+2 a2+4 a3+6
+plot b0 b1+2 b2+4 b3+6
+plot s0 s1+2 s2+4 s3+6 c4+8
+
+.endc
+.end

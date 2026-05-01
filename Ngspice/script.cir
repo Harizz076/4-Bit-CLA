@@ -1,0 +1,55 @@
+*** Measure Setup Time, Hold Time, and Clock-to-Q Delay
+.include "TSMC_180nm.txt"
+.global vdd vss
+
+*** Power supplies
+Vdd vdd 0 1.8
+Vss vss 0 0
+
+*** Clock signal generation
+Vclk clk 0 PULSE(0 1.8 0n 100p 100p 5n 10n)
+
+*** Test signal for setup and hold time measurement
+.param td_start = 2n
+.param td_step = 0.1n
+.param td_max = 10n
+
+Vd_test d_test 0 PULSE(0 1.8 td_start 100p 100p 10n 20n)
+
+*** Inverter Subcircuit
+.subckt inv in out
+X1 in vdd out Pswitch width={Wp}
+X2 in vss out Nswitch width={Wn}
+.ends
+
+*** D Flip-Flop Subcircuit
+Xmaster_latch d_test clk_b clk master_q master_qb dlatch
+Xslave_latch master_q clk clk_b q_test q_test_b dlatch
+
+*** Clock Inverter
+Xclk_inv clk clk_b vdd vss inv
+
+*** Analysis commands
+.control
+*** Sweep for setup time measurement
+set appendwrite on
+wrdata setup_time_measurement.txt v(clk) v(d_test) v(q_test)
+tran 0.1n 100n
+*** Check timing relationships by adjusting td_start parameter
+
+*** Sweep for hold time measurement
+alter td_start = 0.5n
+wrdata hold_time_measurement.txt v(clk) v(d_test) v(q_test)
+
+*** Sweep for clock-to-Q delay measurement
+*** Inject pulse on d_test just before clock edge
+*** Measure time difference between clock edge and q_test response
+
+*** Output signals for plotting
+plot v(clk) v(d_test) v(q_test)
+.endc
+
+*** Models
+.model nmos nmos level=49
+.model pmos pmos level=49
+.end

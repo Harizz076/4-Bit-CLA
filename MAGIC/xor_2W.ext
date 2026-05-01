@@ -1,0 +1,44 @@
+timestamp 1618898111
+version 8.3
+tech scmos
+style lambda=1.0(scna20_orb)
+scale 1000 1 100
+resistclasses 26670 59550 23860 19690 27260 2000000 49 26 2505830
+node "a_20_n100#" 89 0 20 -100 ndiff 480 104 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "gnd" 90 15980 6 -100 ndiff 480 104 0 0 0 0 0 0 0 0 0 0 500 258 0 0 0 0
+node "a_n8_n100#" 89 0 -8 -100 ndiff 480 104 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "out" 816 23124 -16 -100 ndc 480 184 960 184 0 0 0 0 0 0 0 0 1196 606 0 0 0 0
+node "vdd" 399 16168 -8 -9 pdiff 0 0 960 184 0 0 0 0 0 0 0 0 688 352 0 0 0 0
+node "a_n16_n9#" 2045 10528 -16 -9 pdc 0 0 1920 528 0 0 0 0 0 0 0 0 1296 656 0 0 0 0
+node "in_a_bar" 2112 25616 28 -26 pc 0 0 0 0 370 366 0 0 0 0 0 0 264 140 0 0 0 0
+node "in_b_bar" 2112 23360 14 -47 pc 0 0 0 0 370 366 0 0 0 0 0 0 208 112 0 0 0 0
+node "in_b" 2112 21104 0 -40 pc 0 0 0 0 370 366 0 0 0 0 0 0 152 84 0 0 0 0
+node "in_a" 2112 18848 -14 -33 pc 0 0 0 0 370 366 0 0 0 0 0 0 96 56 0 0 0 0
+node "w_n22_n15#" 3390 0 -22 -15 nw 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 6256 320
+cap "in_a" "a_n16_n9#" 240
+cap "in_b" "in_a_bar" 240
+cap "in_b" "out" 240
+cap "in_a" "in_b" 240
+cap "w_n22_n15#" "in_a_bar" 702
+cap "w_n22_n15#" "vdd" 1128
+cap "w_n22_n15#" "out" 1128
+cap "w_n22_n15#" "in_a" 702
+cap "in_b" "in_b_bar" 240
+cap "in_a_bar" "out" 480
+cap "in_a" "in_a_bar" 240
+cap "in_a" "out" 240
+cap "w_n22_n15#" "in_b_bar" 702
+cap "in_b" "a_n16_n9#" 240
+cap "in_a_bar" "in_b_bar" 240
+cap "out" "in_b_bar" 240
+cap "in_a" "in_b_bar" 240
+cap "w_n22_n15#" "a_n16_n9#" 4512
+cap "w_n22_n15#" "in_b" 702
+device mosfet nfet 32 -100 33 -99 2 40 "Gnd!" "in_a_bar" 4 0 "a_20_n100#" 40 240,52 "out" 40 240,92
+device mosfet nfet 18 -100 19 -99 2 40 "Gnd!" "in_b_bar" 4 0 "gnd" 40 240,52 "a_20_n100#" 40 240,52
+device mosfet nfet 4 -100 5 -99 2 40 "Gnd!" "in_b" 4 0 "a_n8_n100#" 40 240,52 "gnd" 40 240,52
+device mosfet nfet -10 -100 -9 -99 2 40 "Gnd!" "in_a" 4 0 "out" 40 240,92 "a_n8_n100#" 40 240,52
+device mosfet pfet 32 -9 33 -8 2 80 "w_n22_n15#" "in_a_bar" 4 0 "out" 80 480,92 "a_n16_n9#" 80 480,172
+device mosfet pfet 18 -9 19 -8 2 80 "w_n22_n15#" "in_b_bar" 4 0 "a_n16_n9#" 80 480,92 "out" 80 480,92
+device mosfet pfet 4 -9 5 -8 2 80 "w_n22_n15#" "in_b" 4 0 "vdd" 80 480,92 "a_n16_n9#" 80 480,92
+device mosfet pfet -10 -9 -9 -8 2 80 "w_n22_n15#" "in_a" 4 0 "a_n16_n9#" 80 480,172 "vdd" 80 480,92

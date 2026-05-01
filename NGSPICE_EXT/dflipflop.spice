@@ -1,0 +1,59 @@
+* SPICE3 file created from dflipflop.ext - technology: scmos
+
+.option scale=1u
+
+M1000 dlatch_0/a_191_n1# dlatch_1/in_D dlatch_0/vdd dlatch_0/w_169_n9#   CMOSP w=20 l=2
++  ad=0.12n pd=32u as=0.16n ps=56u
+M1001 dlatch_0/a_191_n59# dlatch_1/in_D dlatch_0/gnd Gnd   CMOSN w=10 l=2
++  ad=59.999996p pd=22u as=80p ps=36u
+M1002 dlatch_0/a_n21_n6# dlatch_0/in_D dlatch_0/vdd dlatch_0/w_n43_n14#   CMOSP w=20 l=2
++  ad=0.12n pd=32u as=0.16n ps=56u
+M1003 dlatch_0/a_n7_n64# dlatch_0/in_en dlatch_0/a_191_n1# dlatch_0/w_169_n9#   CMOSP w=20 l=2
++  ad=0.16n pd=56u as=0.12n ps=32u
+M1004 dlatch_0/a_n7_n64# dlatch_0/in_en dlatch_0/a_n21_n64# Gnd   CMOSN w=10 l=2
++  ad=80p pd=36u as=59.999996p ps=22u
+M1005 dlatch_1/in_D dlatch_0/a_n7_n64# dlatch_0/vdd dlatch_0/w_53_n14#   CMOSP w=20 l=2
++  ad=0.16n pd=56u as=0.16n ps=56u
+M1006 dlatch_0/a_n7_n64# dlatch_1/in_en dlatch_0/a_n21_n6# dlatch_0/w_n43_n14#   CMOSP w=20 l=2
++  ad=0.16n pd=56u as=0.12n ps=32u
+M1007 dlatch_1/in_D dlatch_0/a_n7_n64# dlatch_0/gnd Gnd   CMOSN w=10 l=2
++  ad=80p pd=36u as=80p ps=36u
+M1008 dlatch_0/a_n21_n64# dlatch_0/in_D dlatch_0/gnd Gnd   CMOSN w=10 l=2
++  ad=59.999996p pd=22u as=80p ps=36u
+M1009 dlatch_0/a_n7_n64# dlatch_1/in_en dlatch_0/a_191_n59# Gnd   CMOSN w=10 l=2
++  ad=80p pd=36u as=59.999996p ps=22u
+M1010 dlatch_1/a_191_n1# dlatch_1/q_out dlatch_1/vdd dlatch_1/w_169_n9#   CMOSP w=20 l=2
++  ad=0.24n pd=64u as=0.48n ps=0.168m
+M1011 dlatch_1/a_191_n59# dlatch_1/q_out dlatch_1/gnd Gnd   CMOSN w=10 l=2
++  ad=0.12n pd=44u as=0.24n ps=0.108m
+M1012 dlatch_1/a_n21_n6# dlatch_1/in_D dlatch_1/vdd dlatch_1/w_n43_n14#   CMOSP w=20 l=2
++  ad=0.24n pd=64u as=0 ps=0
+M1013 dlatch_1/a_n7_n64# dlatch_1/in_en dlatch_1/a_191_n1# dlatch_1/w_169_n9#   CMOSP w=20 l=2
++  ad=0.32n pd=0.112m as=0 ps=0
+M1014 dlatch_1/a_n7_n64# dlatch_1/in_en dlatch_1/a_n21_n64# Gnd   CMOSN w=10 l=2
++  ad=0.16n pd=72u as=0.12n ps=44u
+M1015 dlatch_1/q_out dlatch_1/a_n7_n64# dlatch_1/vdd dlatch_1/w_53_n14#   CMOSP w=20 l=2
++  ad=0.16n pd=56u as=0 ps=0
+M1016 dlatch_1/a_n7_n64# dlatch_0/in_en dlatch_1/a_n21_n6# dlatch_1/w_n43_n14#   CMOSP w=20 l=2
++  ad=0 pd=0 as=0 ps=0
+M1017 dlatch_1/q_out dlatch_1/a_n7_n64# dlatch_1/gnd Gnd   CMOSN w=10 l=2
++  ad=80p pd=36u as=0 ps=0
+M1018 dlatch_1/a_n21_n64# dlatch_1/in_D dlatch_1/gnd Gnd   CMOSN w=10 l=2
++  ad=0 pd=0 as=0 ps=0
+M1019 dlatch_1/a_n7_n64# dlatch_0/in_en dlatch_1/a_191_n59# Gnd   CMOSN w=10 l=2
++  ad=0 pd=0 as=0 ps=0
+C0 dlatch_0/in_D dlatch_0/w_n43_n14# 3.582f
+C1 dlatch_1/in_D dlatch_1/w_n43_n14# 3.582f
+C2 dlatch_1/q_out dlatch_1/w_169_n9# 3.582f
+C3 dlatch_1/in_D dlatch_0/w_169_n9# 3.582f
+C4 dlatch_1/gnd 0 74.498f   
+C5 dlatch_1/in_en 0 0.298726p   
+C6 dlatch_1/vdd 0 56.556f   
+C7 dlatch_1/q_out 0 81.86f   
+C8 dlatch_1/a_n7_n64# 0 0.13301p   
+C9 dlatch_0/gnd 0 74.498f   
+C10 dlatch_0/in_en 0 0.295261p   
+C11 dlatch_0/vdd 0 56.556f   
+C12 dlatch_1/in_D 0 0.133965p   
+C13 dlatch_0/a_n7_n64# 0 0.13301p   
+C14 dlatch_0/in_D 0 16.570002f   

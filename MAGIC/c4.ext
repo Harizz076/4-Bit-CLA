@@ -1,0 +1,80 @@
+timestamp 1619545755
+version 8.3
+tech scmos
+style lambda=1.0(scna20_orb)
+scale 1000 1 100
+resistclasses 26670 59550 23860 19690 27260 2000000 49 26 2505830
+node "a_40_n518#" 1283 10528 40 -518 ndiff 8960 1336 0 0 0 0 0 0 0 0 0 0 2784 1400 0 0 0 0
+node "a_62_0#" 1906 0 62 0 pdiff 0 0 12800 1320 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "a_18_160#" 4941 0 18 160 pdiff 0 0 11520 1976 0 0 0 0 0 0 0 0 4776 2396 0 0 0 0
+node "a_n24_n438#" 1209 28576 -24 -438 ndiff 5440 1012 0 0 0 0 0 0 0 0 0 0 2528 1272 0 0 0 0
+node "a_n47_n398#" 601 13536 -47 -398 ndiff 2960 538 0 0 0 0 0 0 0 0 0 0 1256 636 0 0 0 0
+node "gnd" 272 62228 -57 -398 ndc 640 176 0 0 0 0 0 0 0 0 0 0 1644 830 0 0 0 0
+node "a_n24_240#" 2690 0 -24 240 pdiff 0 0 5440 1012 0 0 0 0 0 0 0 0 2392 1204 0 0 0 0
+node "c4_out" 4104 77832 -47 240 pdiff 8640 1040 12320 1682 0 0 0 0 0 0 0 0 8494 4212 0 0 0 0
+node "vdd" 2674 34592 -56 240 pdc 0 0 2400 670 0 0 0 0 0 0 0 0 3288 1652 0 0 0 0
+node "in_g1_bar" 11979 92690 34 -33 pc 0 0 0 0 2024 2020 0 0 0 0 0 0 420 218 0 0 0 0
+node "in_p2_bar" 11036 108208 12 -70 pc 0 0 0 0 1866 1862 0 0 0 0 0 0 332 174 0 0 0 0
+node "in_p3_bar" 10690 141328 -10 -92 pc 0 0 0 0 1808 1804 0 0 0 0 0 0 244 130 0 0 0 0
+node "in_g2_bar" 10976 125864 -30 -57 pc 0 0 0 0 1856 1852 0 0 0 0 0 0 164 90 0 0 0 0
+node "in_g3_bar" 10284 128556 -53 -81 pc 0 0 0 0 1740 1736 0 0 0 0 0 0 72 44 0 0 0 0
+node "in_p1_bar" 13889 74610 78 -45 pc 0 0 0 0 2344 2340 0 0 0 0 0 0 596 306 0 0 0 0
+node "in_g0_bar" 13888 70850 56 -22 pc 0 0 0 0 2344 2340 0 0 0 0 0 0 508 262 0 0 0 0
+node "w_n67_n12#" 9285 0 -67 -12 nw 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 120060 1694
+cap "in_p1_bar" "in_p3_bar" 240
+cap "w_n67_n12#" "a_n24_240#" 21808
+cap "w_n67_n12#" "in_g3_bar" 24336
+cap "in_g0_bar" "in_g1_bar" 240
+cap "in_p3_bar" "vdd" 240
+cap "w_n67_n12#" "in_p1_bar" 1170
+cap "w_n67_n12#" "vdd" 58656
+cap "in_g2_bar" "in_g3_bar" 240
+cap "in_g1_bar" "c4_out" 540
+cap "in_p1_bar" "in_g2_bar" 240
+cap "in_p3_bar" "in_g1_bar" 240
+cap "in_g0_bar" "c4_out" 480
+cap "vdd" "in_g2_bar" 240
+cap "in_p2_bar" "in_g3_bar" 240
+cap "in_g0_bar" "in_p3_bar" 240
+cap "w_n67_n12#" "in_g1_bar" 13650
+cap "in_p1_bar" "in_p2_bar" 240
+cap "w_n67_n12#" "in_g0_bar" 1170
+cap "in_g2_bar" "in_g1_bar" 240
+cap "in_p3_bar" "c4_out" 300
+cap "in_g0_bar" "in_g2_bar" 240
+cap "w_n67_n12#" "c4_out" 76610
+cap "in_p1_bar" "in_g3_bar" 240
+cap "w_n67_n12#" "in_p3_bar" 26988
+cap "in_p2_bar" "in_g1_bar" 240
+cap "vdd" "in_g3_bar" 240
+cap "in_g2_bar" "c4_out" 300
+cap "in_g0_bar" "in_p2_bar" 240
+cap "in_p3_bar" "in_g2_bar" 240
+cap "w_n67_n12#" "in_g2_bar" 25740
+cap "in_p2_bar" "c4_out" 540
+cap "in_g1_bar" "in_g3_bar" 240
+cap "in_p2_bar" "in_p3_bar" 240
+cap "in_p1_bar" "in_g1_bar" 240
+cap "in_g0_bar" "in_g3_bar" 240
+cap "w_n67_n12#" "a_18_160#" 43992
+cap "w_n67_n12#" "in_p2_bar" 13650
+cap "in_g0_bar" "in_p1_bar" 240
+cap "in_g2_bar" "a_n47_n398#" 240
+cap "in_p2_bar" "in_g2_bar" 240
+cap "in_p1_bar" "c4_out" 480
+cap "in_p3_bar" "in_g3_bar" 240
+cap "in_p3_bar" "a_n24_240#" 240
+device mosfet nfet 82 -518 83 -517 2 320 "Gnd!" "in_p1_bar" 4 0 "c4_out" 320 3200,340 "a_40_n518#" 320 2560,656
+device mosfet nfet 60 -518 61 -517 2 320 "Gnd!" "in_g0_bar" 4 0 "a_40_n518#" 320 3200,340 "c4_out" 320 3200,340
+device mosfet nfet 38 -518 39 -517 2 320 "Gnd!" "in_g1_bar" 4 0 "a_n24_n438#" 320 2240,340 "a_40_n518#" 320 3200,340
+device mosfet nfet 16 -438 17 -437 2 160 "Gnd!" "in_p2_bar" 4 0 "c4_out" 160 1120,180 "a_n24_n438#" 160 2240,340
+device mosfet nfet -6 -398 -5 -397 2 80 "Gnd!" "in_p3_bar" 4 0 "a_n47_n398#" 80 640,176 "c4_out" 80 1120,180
+device mosfet pfet 82 0 83 1 2 640 "w_n67_n12#" "in_p1_bar" 4 0 "a_62_0#" 640 6400,660 "a_18_160#" 640 5120,1296
+device mosfet pfet 60 0 61 1 2 640 "w_n67_n12#" "in_g0_bar" 4 0 "c4_out" 640 4480,660 "a_62_0#" 640 6400,660
+device mosfet pfet 38 160 39 161 2 320 "w_n67_n12#" "in_g1_bar" 4 0 "a_18_160#" 320 3200,340 "c4_out" 320 4480,660
+device mosfet pfet 16 160 17 161 2 320 "w_n67_n12#" "in_p2_bar" 4 0 "a_n24_240#" 320 2560,656 "a_18_160#" 320 3200,340
+device mosfet nfet -26 -438 -25 -437 2 160 "Gnd!" "in_g2_bar" 4 0 "a_n47_n398#" 160 1160,181 "a_n24_n438#" 160 960,332
+device mosfet nfet -49 -398 -48 -397 2 80 "Gnd!" "in_g3_bar" 4 0 "gnd" 80 640,176 "a_n47_n398#" 80 1160,181
+device mosfet pfet -6 240 -5 241 2 160 "w_n67_n12#" "in_p3_bar" 4 0 "a_n24_240#" 160 1440,178 "vdd" 160 1280,336
+device mosfet pfet -26 240 -25 241 2 160 "w_n67_n12#" "in_g2_bar" 4 0 "c4_out" 160 1680,181 "a_n24_240#" 160 1440,178
+device mosfet pfet -49 240 -48 241 2 160 "w_n67_n12#" "in_g3_bar" 4 0 "vdd" 160 1120,334 "c4_out" 160 1680,181

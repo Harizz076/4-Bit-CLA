@@ -1,0 +1,11 @@
+timestamp 1618920172
+version 8.3
+tech scmos
+style lambda=1.0(scna20_orb)
+scale 1000 1 100
+resistclasses 26670 59550 23860 19690 27260 2000000 49 26 2505830
+use pgchain3 pgchain3_0 1 0 129 0 1 -987
+use pgchain1 pgchain1_2 1 0 139 0 1 -632
+use pgchain2 pgchain2_0 1 0 125 0 1 -399
+use pgchain1 pgchain1_1 1 0 138 0 1 -225
+use pgchain1 pgchain1_0 1 0 138 0 1 9
